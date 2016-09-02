@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Voting APP</title>
+    <link rel='stylesheet prefetch' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css'>
+</head>
+
+<body>
+    <div class="container" style="left:auto; right:auto; margin-top:5%; background-color:#eee;">
+        <h1 align="center" style="font-size:42px;">Voting APP</h1>
+        <div>
+            <p align="center" style="font-size:20px;">Select a poll to see the results and vote</p>
+        </div>
+        <table class="table table-hover">
+            <tbody style="background-color:white;">
+                <% for(var i=0; i<polls.length; i++) {%>
+                    <tr class="poll">
+                        <td align="center"><a id=<%= polls[i]['_id'] %> class="poll_row" href="#"><%= polls[i].name %></a></td>
+                    </tr>
+                <% } %>
+            </tbody>
+        </table>
+        <form action="/AddPoll" method="POST" style="margin-bottom:15px;">
+            <input type="text" placeholder="poll" name="poll">
+            <input type="text" placeholder="options, Separated by commas." name="options">
+            <button type="submit">Add Poll</button>
+        </form>
+    </div>
+    <script src='https://code.jquery.com/jquery-2.2.4.min.js'></script>
+    <script src="main.js"></script>
+</body>
+
+</html>
